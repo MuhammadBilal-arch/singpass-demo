@@ -46,6 +46,7 @@ app.get("/getEnv", function (req, res) {
         error: "Missing Client ID",
       });
     } else {
+      res.setHeader("Cache-Control", "no-store");
       res.status(200).send({
         clientId: config.APP_CONFIG.DEMO_APP_CLIENT_ID,
         redirectUrl: config.APP_CONFIG.DEMO_APP_CALLBACK_URL,
